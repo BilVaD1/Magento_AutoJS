@@ -66,7 +66,7 @@ class Products extends Page {
         const product = await this.getItem(item)
         let btn = await product.$('button[title="Add to Cart"]')
         await btn.click()
-        await $("div[data-ui-id='message-success']").waitForDisplayed({ timeout: 5000, timeoutMsg:"Message about succes added item isn't displayed"})
+        await $("div[data-ui-id='message-success']").waitForExist({ timeout: 10000, timeoutMsg:"Message about succes added item isn't displayed"})
     }
 
     async addProductFromListToCart (item, size, color) {
