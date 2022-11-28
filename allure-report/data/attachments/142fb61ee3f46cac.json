@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"button[title=\"Add to Cart\"]\"}\n  (Session info: chrome=107.0.5304.107)",
+  "stacktrace": "Backtrace:\n\tOrdinal0 [0x002FACD3+2075859]\n\tOrdinal0 [0x0028EE61+1633889]\n\tOrdinal0 [0x0018B7BD+571325]\n\tOrdinal0 [0x001BAC2F+764975]\n\tOrdinal0 [0x001BAE1B+765467]\n\tOrdinal0 [0x001B1681+726657]\n\tOrdinal0 [0x001D7364+881508]\n\tOrdinal0 [0x001B15BF+726463]\n\tOrdinal0 [0x001D7534+881972]\n\tOrdinal0 [0x001EB56A+963946]\n\tOrdinal0 [0x001D7136+880950]\n\tOrdinal0 [0x001AFEFD+720637]\n\tOrdinal0 [0x001B0F3F+724799]\n\tGetHandleVerifier [0x005AEED2+2769538]\n\tGetHandleVerifier [0x005A0D95+2711877]\n\tGetHandleVerifier [0x0038A03A+521194]\n\tGetHandleVerifier [0x00388DA0+516432]\n\tOrdinal0 [0x0029682C+1665068]\n\tOrdinal0 [0x0029B128+1683752]\n\tOrdinal0 [0x0029B215+1683989]\n\tOrdinal0 [0x002A6484+1729668]\n\tBaseThreadInitThunk [0x76457BA9+25]\n\tRtlInitializeExceptionChain [0x7738BB9B+107]\n\tRtlClearBits [0x7738BB1F+191]\n"
+}

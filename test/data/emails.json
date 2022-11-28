@@ -1,0 +1,15 @@
+{
+    "valid": {
+        "standard": "test118@test.com",
+        "withnumbers": "test116@test.com",
+        "used": "test117@test.com"
+    },
+    "invalid": {
+        "withoutDog": "testtest",
+        "withoutDomain": "test@",
+        "withoutLocal": "@test",
+        "withTwoDog": "test@@test",
+        "withSpaceDomain": "test@t est",
+        "withSpaceLocal": "te st@test"
+    }
+}

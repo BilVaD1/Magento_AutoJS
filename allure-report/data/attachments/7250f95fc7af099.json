@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "span[data-bind=\"css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading\"]"
+}

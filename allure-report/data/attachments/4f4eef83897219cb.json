@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "li.product-item:nth-child(1)"
+}
