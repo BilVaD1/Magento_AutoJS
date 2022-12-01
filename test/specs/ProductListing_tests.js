@@ -35,18 +35,33 @@ describe('Products Listing Page tests: ', () => {
         expect(number).toBe('1')
     });
 
-    it('2. Verify the sort by Price in the Descending', async () => {
+    xit('2. Verify the sort by Price in the Descending', async () => {
         await ListingPage.selectSortBy("Price", "Descending")
         const prices = await Products.getPriceOfProducts()
         const direction = helpers.determineOrder(prices)
         expect(direction).toBe('descending')
     });
 
-    it('3. Verify the sort by Price in the Ascending', async () => {
+    xit('3. Verify the sort by Price in the Ascending', async () => {
         await ListingPage.selectSortBy("Price")
         const prices = await Products.getPriceOfProducts()
         const direction = helpers.determineOrder(prices)
         expect(direction).toBe('ascending')
+    });
+
+    xit('4. Verify the sort by Product Name in the Ascending Alphabetical Order', async () => {
+        await ListingPage.selectSortBy("Product Name")
+        const productsNames = await Products.getNamesOfProducts()
+        console.log(productsNames)
+        const order = helpers.determineAlphabeticalOrder(productsNames)
+        expect(order).toBe("Alphabetical")
+    });
+
+    it('5. Verify the sort by Product Name in the Reverse Alphabetical Order', async () => {
+        await ListingPage.selectSortBy("Product Name", "Descending")
+        const productsNames = await Products.getNamesOfProducts()
+        const order = helpers.determineAlphabeticalOrder(productsNames)
+        expect(order).toBe("Reverse Alphabetical")
     });
   
 

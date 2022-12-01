@@ -27,6 +27,23 @@ class helpers {
         };
         return ascending ? 'ascending' : 'descending';
     };
+
+    determineAlphabeticalOrder (arr) {
+        if(arr.length < 2){
+            return 'not enough items';
+        };
+        const currentArr = arr.slice()
+        const newArr = arr.sort()
+        const newArrReverse = (newArr.slice()).reverse()
+        console.log(currentArr, newArr, newArrReverse)
+        if(JSON.stringify(currentArr) === JSON.stringify(newArr)) {
+            return "Alphabetical"
+        } else if (JSON.stringify(currentArr) === JSON.stringify(newArrReverse)) {
+            return "Reverse Alphabetical"
+        } else {
+            return "Not Alphabetical"
+        }
+    }
     
 }
     

@@ -14,6 +14,16 @@ class Products extends Page {
         return await $$('.products-grid.grid .product-item')
     }
 
+    async getNamesOfProducts() {
+        let namesOfProducts = []
+        const products = await this.getAllProducts()
+        for(const product of products){
+            const text = await product.$("a.product-item-link").getText()
+            namesOfProducts.push(text)
+        }
+        return namesOfProducts
+    }
+
     // Для поиска цен всех продуктов на странице, вызывать метод без аргументов. Если нужна цена одного или нескольких товаров, то ввести их порядковый номер в аргументы функции
     async getPriceOfProducts (...args) {
         let givenPrices = []
