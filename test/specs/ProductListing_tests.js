@@ -23,7 +23,7 @@ describe('Products Listing Page tests: ', () => {
     })
   
   
-    it('1. Verify the adding item to the mini cart', async () => {
+    xit('1. Verify the adding item to the mini cart', async () => {
         /*await Products.selectSize(1, 'XL')
         await Products.selectColor(1, 'Orange')
         await Products.addToCart(1)
@@ -33,6 +33,20 @@ describe('Products Listing Page tests: ', () => {
         let number = await miniCart.getQtyInCart()
 
         expect(number).toBe('1')
+    });
+
+    it('2. Verify the sort by Price in the Descending', async () => {
+        await ListingPage.selectSortBy("Price", "Descending")
+        const prices = await Products.getPriceOfProducts()
+        const direction = helpers.determineOrder(prices)
+        expect(direction).toBe('descending')
+    });
+
+    it('3. Verify the sort by Price in the Ascending', async () => {
+        await ListingPage.selectSortBy("Price")
+        const prices = await Products.getPriceOfProducts()
+        const direction = helpers.determineOrder(prices)
+        expect(direction).toBe('ascending')
     });
   
 
