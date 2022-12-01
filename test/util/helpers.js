@@ -32,7 +32,7 @@ class helpers {
         if(arr.length < 2){
             return 'not enough items';
         };
-        const currentArr = arr.slice()
+        const currentArr = arr.slice() // arr.slice() - create new arr
         const newArr = arr.sort()
         const newArrReverse = (newArr.slice()).reverse()
         console.log(currentArr, newArr, newArrReverse)
