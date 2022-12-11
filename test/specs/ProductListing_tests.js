@@ -5,7 +5,7 @@ const miniCart = require('../pageobjects/minicart.page');
 const helpers = require('../util/helpers')
 
 describe('Products Listing Page tests: ', () => {
-
+    
     beforeEach(async function(){
         let EnteredText = process.env.ListingPage //From the CL
         const genderEntered = EnteredText.split('_')[0] //Find the word before '_'
@@ -24,12 +24,16 @@ describe('Products Listing Page tests: ', () => {
   
   
     xit('1. Verify the adding item to the mini cart', async () => {
-        /*await Products.selectSize(1, 'XL')
-        await Products.selectColor(1, 'Orange')
-        await Products.addToCart(1)
-        await browser.pause(5000)*/
-        await Products.addProductFromListToCart(1, 'XL', 'Blue')
-        //await Products.addProductFromListToCart(2, 'XL', 'Yellow')
+        let EnteredText = process.env.ListingPage //From the CL
+        const ChoosedPage1 = EnteredText.split('_')[1]  //Find the word after '_'
+        switch(ChoosedPage1==="Shorts" || ChoosedPage1==="Pants"){ //Specify the type of product size according to the Product Listing page
+            case true:
+                await Products.addProductFromListToCart(1, '32', 'Red')
+                break
+            case false:
+                await Products.addProductFromListToCart(2, 'XL', 'Yellow')
+                break
+        }
         let number = await miniCart.getQtyInCart()
 
         expect(number).toBe('1')
@@ -57,11 +61,17 @@ describe('Products Listing Page tests: ', () => {
         expect(order).toBe("Alphabetical")
     });
 
-    it('5. Verify the sort by Product Name in the Reverse Alphabetical Order', async () => {
+    xit('5. Verify the sort by Product Name in the Reverse Alphabetical Order', async () => {
         await ListingPage.selectSortBy("Product Name", "Descending")
         const productsNames = await Products.getNamesOfProducts()
         const order = helpers.determineAlphabeticalOrder(productsNames)
         expect(order).toBe("Reverse Alphabetical")
+    });
+
+    it('6. Verify the filter is displayed', async () => {
+        await ListingPage.selectFilter("MATERIAL", "Cotton")  
+        const filter = await ListingPage.getCurrentFilter()
+        expect(filter).toContain('Cotton')
     });
   
 

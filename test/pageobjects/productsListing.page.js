@@ -3,6 +3,12 @@ const Page = require('./page');
 
 class ListingPage extends Page {
 
+    async getCurrentFilter(){
+        const filterBlock = await  $('.filter-current li:first-child span.filter-value')
+        await filterBlock.waitForExist({ timeout:5000, timeoutMsg:"The filter block is not displayed"})
+        return await filterBlock.getText()
+    }
+
     async selectDirection(way){
         const switcher = await $("(//a[@data-role='direction-switcher'])[1]")
         const swithcerTitle = await switcher.getAttribute('title')
@@ -30,7 +36,39 @@ class ListingPage extends Page {
         }
         
         await this.selectDirection(way)
+    }
 
+    get allOptionFilters () {
+        return $$('.filter-options-title')
+    }
+
+    async selectOptionsOfFliter(el, nameOfOption){
+        let options = await el.$$('li')
+        second: for(let option of options){
+            const text = await option.getText()
+            switch(text.includes(nameOfOption)){
+                case true:
+                    await (await option.$('a')).click()
+                    break second
+                default:
+                    console.log(text)
+            }
+        }
+    }
+
+    async selectFilter (nameOfFilter, nameOfOption){
+        let filters = await this.allOptionFilters
+        first: for(let filter of filters){
+            const text = await filter.getText()
+            switch(text==nameOfFilter){
+                case true:
+                    await filter.scrollIntoView()
+                    await filter.click()
+                    const optionOfFilter = await filter.nextElement()
+                    await this.selectOptionsOfFliter(optionOfFilter, nameOfOption)
+                    break first
+            }
+        }
     }
 
     open (page,  gender) {

@@ -13,7 +13,7 @@
         "wdio-chromedriver-service": "^8.0.0"
     },
     "scripts": {
-        "wdio": "cross-env ListingPage=women_Jackets wdio run wdio.conf.js",
+        "wdio": "cross-env ListingPage=women_Shorts wdio run wdio.conf.js",
         "allure_delete_results": "del allure-results",
         "allure_update_results": "allure generate --clean",
         "allure_open": "allure open"

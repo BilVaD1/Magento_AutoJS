@@ -82,6 +82,7 @@ class Products extends Page {
     async addProductFromListToCart (item, size, color) {
         await this.selectSize(item,size)
         await this.selectColor(item, color)
+        //await browser.pause(1000)
         await this.addToCart(item)
     }
 
