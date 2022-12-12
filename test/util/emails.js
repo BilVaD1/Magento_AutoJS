@@ -1,4 +1,5 @@
 const mails = require('../data/emails.json')
+const creds = require('../data/signUp_creds.json')
 
 class emails {
     getValidEmails (){
@@ -7,6 +8,10 @@ class emails {
 
     getInvalidEmails (){
         return mails.invalid
+    }
+
+    getValidCreds (){
+        return creds.valid.user1
     }
 }
 

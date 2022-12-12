@@ -1,0 +1,26 @@
+{
+    "valid": {
+        "user1": {
+            "email": "test118@test.com",
+            "First Name": "Jhon",
+            "Last Name": "Rob",
+            "password": "pas123!"},
+        "user2": {
+            "email": "test2@test.com",
+            "First Name": "Alex",
+            "Last Name": "Hainz",
+            "password": "pas123!"}
+    },
+    "invalid": {
+        "user1": {
+            "email": "te st118@test.com",
+            "First Name": "Jhon",
+            "Last Name": "Rob",
+            "password": "pas123!"},
+        "user2": {
+            "email": "test2@test.com",
+            "First Name": "Alex",
+            "Last Name": "Hainz",
+            "password": ""}
+    }
+}
